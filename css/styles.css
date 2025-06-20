@@ -62,8 +62,12 @@ body {
 .page-section {
   position: relative;
   z-index: 1; /* Ensure content is above parallax layers */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+  background-color: rgba(0, 0, 0, 0.7) !important; /* Semi-transparent dark background, forced */
   color: #f0f0f0; /* Light text color for readability on dark background */
+}
+
+#favourites .text-primary {
+  color: #ffffff !important; /* White for Favourites section icons */
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
