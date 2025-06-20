@@ -56,7 +56,14 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #000000; /* Changed for parallax background */
+}
+
+.page-section {
+  position: relative;
+  z-index: 1; /* Ensure content is above parallax layers */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+  color: #f0f0f0; /* Light text color for readability on dark background */
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10114,6 +10121,8 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  position: relative; /* Ensure masthead is part of stacking context */
+  z-index: 1; /* Place masthead above asteroids (z-index: 0) */
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -10917,7 +10926,7 @@ footer.footer .copyright {
 
 /* Ensure Bootstrap's default .bg-light is overridden for dark theme if used on sections */
 .bg-light {
-    background-color: #2a2a2a !important; /* Custom dark theme light background */
+    background-color: transparent !important; /* Make .bg-light transparent for parallax */
 }
 
 /* Custom Portfolio Item Hover Effects */

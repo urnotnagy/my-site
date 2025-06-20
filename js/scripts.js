@@ -34,10 +34,14 @@
     });
 
     // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#mainNav",
-        offset: 74,
-    });
+    if ($.fn.scrollspy) {
+        $("body").scrollspy({
+            target: "#mainNav",
+            offset: 74,
+        });
+    } else {
+        console.warn("jQuery.scrollspy function not found. Skipping scrollspy initialization.");
+    }
 
     // Collapse Navbar
     var navbarCollapse = function () {

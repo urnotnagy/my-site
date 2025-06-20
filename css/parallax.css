@@ -1,0 +1,78 @@
+/* Basic Page Setup */
+html, body {
+  margin: 0;
+  padding: 0;
+  /* font-family: Arial, sans-serif; */ /* Commented out to not override main theme font */
+  /* background-color: #000000; */ /* Will be handled by parallax layers or existing body styles */
+  /* color: #333; */ /* Commented out to not override main theme text color */
+}
+
+/* New Parallax Star Layer */
+#parallax-stars-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('../assets/img/space_stars.png'); */ /* Removed as requested */
+  background-repeat: repeat;
+  background-size: auto;
+  z-index: -2; /* Behind main content and other parallax elements */
+  pointer-events: none;
+  will-change: transform; /* For parallax animation */
+}
+
+/* This was in the provided CSS, its purpose is unclear without #parallax-layer-fg in HTML */
+/*
+#parallax-layer-fg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: none;
+}
+*/
+
+/* Styles for .content-section were provided, but existing .page-section might be used instead.
+   These are kept for now but might need integration/removal later. */
+.content-section {
+  position: relative;
+  z-index: 10; /* Ensure content is above parallax background elements */
+  padding: 50px;
+  margin: 0 auto;
+  max-width: 800px; /* This might conflict with existing layout, review later */
+  background: rgba(255, 255, 255, 0.1); /* Example, might need adjustment for theme */
+  color: #f0f0f0; /* Example, might need adjustment for theme */
+  min-height: 50vh;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.content-section h2 {
+  margin-top: 0;
+  color: #FFFFFF;
+}
+
+.content-section p {
+  line-height: 1.6;
+}
+
+.asteroid {
+    position: fixed; /* Changed from absolute to fixed for viewport-relative positioning */
+    z-index: 0; /* Behind page-sections (z-index: 1), above body background */
+    min-width: 30px;
+    max-width: 120px;
+    height: auto;
+    pointer-events: none;
+    opacity: 0.9;
+    will-change: transform;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Ensure body background from main styles.css doesn't conflict if parallax is full background */
+body {
+    /* background-color: #000000 !important; */ /* Example: Force black if needed */
+    /* background-image: none !important; */  /* Example: Remove existing body image if parallax replaces it */
+}
